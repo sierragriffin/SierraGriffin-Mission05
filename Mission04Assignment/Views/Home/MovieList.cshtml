@@ -1,0 +1,45 @@
+﻿<!--Page View to List Movies in Database-->
+@{
+    ViewData["Title"] = "Movie List";
+    ViewData["Header"] = "My Film Collection";
+}
+
+<!--Lowercase model defines the type-->
+@model List<AddMovieResponse>  
+
+<table class="table table-bordered table-striped table-hover">
+
+    <thead class="font-weight-bold">
+        <tr>
+            <td>Category</td>
+            <td>Title</td>
+            <td>Year</td>
+            <td>Director</td>
+            <td>Rating</td>
+            <td>Edited?</td>
+            <td>Lent To?</td>
+            <td>Notes:</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <!--Loop through movies in database to fill table-->
+        @foreach (var item in Model) // UpperCase Model uses the type
+            {
+                <tr>
+                    <td>@item.Category.CategoryName</td>
+                    <td>@item.Title</td>
+                    <td>@item.Year</td>
+                    <td>@item.Director</td>
+                    <td>@item.Rating</td>
+                    <td>@item.Edited</td>
+                    <td>@item.LentTo</td>
+                    <td>@item.Notes</td>
+
+                    <td><a asp-controller="Home" asp-action="Edit" asp-route-movieid="@item.MovieId">Edit</a></td>
+                    <td><a asp-controller="Home" asp-action="Delete" asp-route-movieid="@item.MovieId">Delete</a></td>
+                </tr>
+            }
+    </tbody>
+
+</table>

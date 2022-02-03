@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "/Users/sierragriffin/.dotnet/store/|arch|/|tfm|",
+      "/Users/sierragriffin/.nuget/packages"
+    ]
+  }
+}
